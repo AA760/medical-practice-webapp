@@ -14,10 +14,10 @@ import com.example.groupproject.model.Patient;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class GroupprojectApplication {
+public class HealthCheckerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GroupprojectApplication.class, args);
+		SpringApplication.run(HealthCheckerApplication.class, args);
 		Patient p=new Patient();
 //		System.out.println(p.getId());
 //		p.setFirstName("Hello");
