@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from "react";
+import {Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import AdminManageAccount from "./Components/AdminManageAccount";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <h1 className="App-header">Healthchecker Application</h1>
+          <nav className="topnav">
+              <Link to={'/adminManageAccount'} className="App-link">Manage Accounts </Link>
+          </nav>
+          <Switch>
+              <Route exact path='/adminManageAccount' component={AdminManageAccount} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
+
