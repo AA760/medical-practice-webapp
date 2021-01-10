@@ -12,6 +12,10 @@ export default function AdminManageAccount() {
   const [activeV, setActive] = React.useState("");
   const [idV, setId] = React.useState("");
   
+  const [id2V, setId2] = React.useState("");
+  const [password2V, setPassword2] = React.useState("");
+  
+  
   const [output, setOutput] = React.useState("");
 
   //Arrow functions to handle content change
@@ -20,6 +24,9 @@ export default function AdminManageAccount() {
   const roleContentChange = event => setRole(event.target.value);
   const activeContentChange = event => setActive(event.target.value);
   const idContentChange = event => setId(event.target.value);
+  
+  const id2ContentChange = event => setId2(event.target.value);
+  const password2ContentChange = event => setPassword2(event.target.value);
   
 
   //Arrow function to handle submit button press
@@ -66,6 +73,28 @@ export default function AdminManageAccount() {
 	});
 	
   }
+  
+  const handleUpdate = event => {
+    event.preventDefault();
+    setOutput("Update button pressed.")
+	
+	
+    axios({
+      method: 'put',
+      url: '/changePassword',
+	  data: {
+		  id: id2V,password: password2V
+	  }
+    })
+	.then((response) => {
+		console.log(response);
+		setOutput("Sucess");
+	}, (error) => {
+		console.log(error);
+		setOutput("Fail");
+	});
+	
+  };
 
 
   return (
@@ -115,6 +144,24 @@ export default function AdminManageAccount() {
 			<form>
 				<button  onClick={handleDelete}>
 				Delete
+				</button>
+			</form>
+			
+			<form>
+				
+				<h1>Change Password</h1>
+				<p>ID:</p>
+				<textarea id="id2" name="id2"
+				onChange={id2ContentChange} />
+				
+				<p>New Password:</p>
+				<textarea id="password2" name="password2"
+				onChange={password2ContentChange} />
+			</form>
+			
+			<form>
+				<button  onClick={handleUpdate}>
+				Update
 				</button>
 			</form>
 			

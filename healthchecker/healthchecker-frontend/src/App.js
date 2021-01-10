@@ -10,7 +10,7 @@ class App extends Component {
         <div>
           <h1 className="App-header">Healthchecker Application</h1>
           <nav className="topnav">
-              <Link to={'/adminManageAccount'} className="App-link">Manage Accounts </Link>
+              <Link to={'/adminManageAccount'} className="App-link">Manage Accounts</Link>
           </nav>
           <Switch>
               <Route exact path='/adminManageAccount' component={AdminManageAccount} />

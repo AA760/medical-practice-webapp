@@ -1,3 +1,4 @@
+
 package com.group36.healthchecker.repository;
 
 import com.group36.healthchecker.model.User;

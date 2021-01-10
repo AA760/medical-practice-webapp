@@ -1,5 +1,6 @@
 package com.group36.healthchecker.model;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DynamicUpdate
 public class AppUserDetails implements UserDetails 
 {
 
@@ -15,7 +17,7 @@ public class AppUserDetails implements UserDetails
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
-
+ 
     public AppUserDetails(User user) 
     {
         this.userName = user.getUserName();

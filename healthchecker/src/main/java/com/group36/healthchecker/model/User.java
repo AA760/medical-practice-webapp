@@ -11,13 +11,13 @@ public class User
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private String userName;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private boolean active;
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private String roles;
     
 
