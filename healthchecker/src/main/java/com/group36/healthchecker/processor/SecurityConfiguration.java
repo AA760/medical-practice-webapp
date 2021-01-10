@@ -34,19 +34,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     	
     	http.cors().and().csrf().disable();
     	
-       //Role authorisations for the example API endpoints
+       //Role authorisations for the API endpoints
     	http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/patient").hasAnyRole("ADMIN", "PATIENT")
                 .antMatchers("/doctor").hasAnyRole("ADMIN", "DOCTOR")
                 .antMatchers("/").permitAll()
-                
-                //Comment these for testing without front-end
-                //.antMatchers("/createUser").hasAnyRole("ADMIN")
-                //.antMatchers("/users").hasAnyRole("ADMIN")
-                //.antMatchers("/deleteUserName").hasAnyRole("ADMIN")
-                //.antMatchers("/deleteId")..hasAnyRole("ADMIN")
-                .and().formLogin();
+                .antMatchers("/createUser").hasAnyRole("ADMIN")
+                .antMatchers("/users").hasAnyRole("ADMIN")
+                .antMatchers("/deleteUserName/{userName}").hasAnyRole("ADMIN")
+                .antMatchers("/deleteId/{id}").hasAnyRole("ADMIN")
+                .antMatchers("/changePassword").hasAnyRole("ADMIN")
+                .and()
+                .httpBasic()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .and()
+                .formLogin();
     }
 
     @Bean

@@ -1,6 +1,5 @@
 import React from "react";
 import './adminManageAccount.css';
-import springlogo from './springlogo.png'
 import axios from 'axios';
 
 export default function AdminManageAccount() {
@@ -15,8 +14,9 @@ export default function AdminManageAccount() {
   const [id2V, setId2] = React.useState("");
   const [password2V, setPassword2] = React.useState("");
   
-  
-  const [output, setOutput] = React.useState("");
+  const [outputSubmit, setOutputSubmit] = React.useState("");
+  const [outputDelete, setOutputDelete] = React.useState("");
+  const [outputPassword, setOutputPassword] = React.useState("");
 
   //Arrow functions to handle content change
   const usernameContentChange = event => setUsername(event.target.value);
@@ -32,7 +32,7 @@ export default function AdminManageAccount() {
   //Arrow function to handle submit button press
   const handleSubmit = event => {
     event.preventDefault();
-    setOutput("Register button pressed.")
+    setOutputSubmit("Register button pressed.")
 	
 	
     axios({
@@ -44,10 +44,10 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutput("Sucess");
+		setOutputSubmit("Sucess");
 	}, (error) => {
 		console.log(error);
-		setOutput("Fail");
+		setOutputSubmit("Fail");
 	});
 	
   };
@@ -55,7 +55,7 @@ export default function AdminManageAccount() {
   //Arrow function to handle delete button press
   const handleDelete = event => {
     event.preventDefault();
-    setOutput("Delete button pressed.")
+    setOutputDelete("Delete button pressed.")
 	
 	
     axios({
@@ -66,17 +66,18 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutput("Sucess");
+		setOutputDelete("Sucess");
 	}, (error) => {
 		console.log(error);
-		setOutput("Fail");
+		setOutputDelete("Fail");
 	});
 	
   }
   
+  //Arrow function to handle update button press
   const handleUpdate = event => {
     event.preventDefault();
-    setOutput("Update button pressed.")
+    setOutputPassword("Update button pressed.")
 	
 	
     axios({
@@ -88,10 +89,10 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutput("Sucess");
+		setOutputPassword("Sucess");
 	}, (error) => {
 		console.log(error);
-		setOutput("Fail");
+		setOutputPassword("Fail");
 	});
 	
   };
@@ -100,10 +101,6 @@ export default function AdminManageAccount() {
   return (
     <div>
       <div className="container">
-        <div className="box">
-          <img src={springlogo} alt="Equality icon" className="icon" />
-        </div>
-		  
 		  
 			<form>
 				<h1>Registration form</h1>
@@ -132,6 +129,10 @@ export default function AdminManageAccount() {
 				</button>
 			</form>
 			
+			<div className="box">
+			<p>{outputSubmit}</p>
+			</div>
+			
 			
 			<form>
 				
@@ -146,6 +147,10 @@ export default function AdminManageAccount() {
 				Delete
 				</button>
 			</form>
+			
+			<div className="box">
+				<p>{outputDelete}</p>
+				</div>
 			
 			<form>
 				
@@ -165,11 +170,11 @@ export default function AdminManageAccount() {
 				</button>
 			</form>
 			
-	  
-        
-        <div className="box">
-          <p>{output}</p>
-        </div>
+			<div className="box">
+			<p>{outputPassword}</p>
+			</div>
+			
+	 
       </div>
     </div>
   );
