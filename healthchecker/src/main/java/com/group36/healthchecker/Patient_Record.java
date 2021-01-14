@@ -1,4 +1,4 @@
-package com.example.groupproject.model;
+package com.group36.healthchecker.model;
 
 import java.io.Serializable;
 
