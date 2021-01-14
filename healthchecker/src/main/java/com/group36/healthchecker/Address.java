@@ -1,4 +1,4 @@
-package com.example.groupproject.model;
+package com.group36.healthchecker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
