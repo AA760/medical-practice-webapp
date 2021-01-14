@@ -1,4 +1,4 @@
-package com.example.groupproject.controller;
+package com.group36.healthchecker.controller;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.groupproject.exception.ResourceNotFoundException;
-import com.example.groupproject.model.Address;
-import com.example.groupproject.processor.TextProcessor;
-import com.example.groupproject.repository.AddressRepository;
+import com.group36.healthchecker.exception.ResourceNotFoundException;
+import com.group36.healthchecker.model.Address;
+import com.group36.healthchecker.processor.TextProcessor;
+import com.group36.healthchecker.repository.AddressRepository;
 
 
 @RestController
