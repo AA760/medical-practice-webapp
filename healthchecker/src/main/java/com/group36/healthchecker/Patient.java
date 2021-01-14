@@ -1,4 +1,4 @@
-package com.example.groupproject.model;
+package com.group36.healthchecker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -36,19 +36,25 @@ public class Patient implements Serializable {
 //		@NotBlank
 //		private String dor;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	@LastModifiedDate
-	private Date dor;
+//	@Column(nullable = false)
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@LastModifiedDate
+//	private Date dor;
+	
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    private Date dor;
 
 //	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private Long addressId;
 
 	@NotBlank
 	private String phone;
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long recordId;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long recordId;
 
 	@NotNull
 	private Long user_Id;
@@ -82,14 +88,12 @@ public class Patient implements Serializable {
 
 	}
 
-	public Patient(String firstName, String lastName, Date dob, Long addressId, String phone, Long recordId,
-			Long userId) {
+	public Patient(String firstName, String lastName, Date dob, Long addressId, String phone,Long userId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
 		this.addressId = addressId;
 		this.phone = phone;
-		this.recordId = recordId;
 		this.user_Id = userId;
 	}
 
@@ -150,13 +154,7 @@ public class Patient implements Serializable {
 		this.phone = phone;
 	}
 
-	public Long getRecordId() {
-		return recordId;
-	}
 
-	public void setRecordId(Long recordId) {
-		this.recordId = recordId;
-	}
 
 	public Long getUser_Id() {
 		return user_Id;
