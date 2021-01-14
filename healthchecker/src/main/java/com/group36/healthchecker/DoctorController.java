@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group36.healthchecker.model.MedicalHistory;
-import com.group36.healthchecker.repository.MedicalHistoryRepository;
+import com.group36.healthchecker.model.Doctor;
+import com.group36.healthchecker.repository.DoctorRepsitory;
 
 @RestController
 //@RequestMapping("/")
-public class MedicalHistoryController {
+public class DoctorController {
 
 	@Autowired
-	MedicalHistoryRepository medicalHistoryRepository;
+	DoctorRepsitory doctorRepository;
 
 	@Autowired
 //    TextProcessor textProcessor;
@@ -34,17 +34,27 @@ public class MedicalHistoryController {
 //    }
 
 	// Get All Job Texts
-	@GetMapping("/medicalhistory")
-	public List<MedicalHistory> getPatient() {
-		return medicalHistoryRepository.findAll();
+	@GetMapping("/doctor")
+	public List<Doctor> getDoctor() {
+		return doctorRepository.findAll();
 	}
 
 	// Create a new Job Text
-	@PostMapping("/medicalhistory")
-	public MedicalHistory createPatient(@Valid @RequestBody MedicalHistory medicalHistory) {
+	@PostMapping("/doctor")
+	public Doctor createDoctor(@Valid @RequestBody Doctor doctor) {
 //        ProcessedText processed = analyzeProcessedText(text);
 //    	text.setId((long) 1);
-		return medicalHistoryRepository.save(medicalHistory);
+//		AddressController addressController = new AddressController();
+//		Address address=new Address();
+//		patient.setRecordId(null);
+//		List<Address> address=addressController.getAllAddress();
+//		
+//		Patient_RecordController patientRecordController = new Patient_RecordController();
+//		Patient_Record patientRecord=new Patient_Record();
+//		Patient_Record patientRecord1=patientRecordController.createPatientRecord(patientRecord);
+//		patient.setAddressId(address.getAddressid());
+//		patient.setRecordId(patientRecord1.getRecord_Id());
+		return doctorRepository.save(doctor);
 	}
 
 	// Get a Single Job Text

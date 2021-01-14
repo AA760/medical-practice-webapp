@@ -1,11 +1,11 @@
-package com.example.groupproject.controller;
+package com.group36.healthchecker.controller;
 
-import com.example.groupproject.exception.ResourceNotFoundException;
-import com.example.groupproject.model.Patient;
-import com.example.groupproject.model.Patient_Record;
-import com.example.groupproject.processor.*;
-import com.example.groupproject.repository.PatientRepository;
-import com.example.groupproject.repository.Patient_RecordRepository;
+import com.group36.healthchecker.exception.ResourceNotFoundException;
+import com.group36.healthchecker.model.Patient;
+import com.group36.healthchecker.model.Patient_Record;
+import com.group36.healthchecker.processor.*;
+import com.group36.healthchecker.repository.PatientRepository;
+import com.group36.healthchecker.repository.Patient_RecordRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

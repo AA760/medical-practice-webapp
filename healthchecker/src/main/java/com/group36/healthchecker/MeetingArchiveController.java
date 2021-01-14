@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group36.healthchecker.model.MedicalHistory;
-import com.group36.healthchecker.repository.MedicalHistoryRepository;
+import com.group36.healthchecker.model.MeetingArchive;
+import com.group36.healthchecker.repository.MeetingArchiveRepository;
 
 @RestController
 //@RequestMapping("/")
-public class MedicalHistoryController {
+public class MeetingArchiveController {
 
 	@Autowired
-	MedicalHistoryRepository medicalHistoryRepository;
+	MeetingArchiveRepository meetingArchiveRepository;
+	
 
 	@Autowired
 //    TextProcessor textProcessor;
@@ -34,17 +35,15 @@ public class MedicalHistoryController {
 //    }
 
 	// Get All Job Texts
-	@GetMapping("/medicalhistory")
-	public List<MedicalHistory> getPatient() {
-		return medicalHistoryRepository.findAll();
+	@GetMapping("/meetingarchive")
+	public List<MeetingArchive> getMeetingAchive() {
+		return meetingArchiveRepository.findAll();
 	}
 
 	// Create a new Job Text
-	@PostMapping("/medicalhistory")
-	public MedicalHistory createPatient(@Valid @RequestBody MedicalHistory medicalHistory) {
-//        ProcessedText processed = analyzeProcessedText(text);
-//    	text.setId((long) 1);
-		return medicalHistoryRepository.save(medicalHistory);
+	@PostMapping("/meetingarchive")
+	public MeetingArchive createMeetingArchive(@Valid @RequestBody MeetingArchive meetingArchive) {
+		return meetingArchiveRepository.save(meetingArchive);
 	}
 
 	// Get a Single Job Text

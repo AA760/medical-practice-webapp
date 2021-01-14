@@ -6,19 +6,26 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group36.healthchecker.model.MedicalHistory;
-import com.group36.healthchecker.repository.MedicalHistoryRepository;
+import com.group36.healthchecker.exception.ResourceNotFoundException;
+import com.group36.healthchecker.model.Address;
+import com.group36.healthchecker.model.Patient;
+import com.group36.healthchecker.model.Patient_Record;
+import com.group36.healthchecker.model.Users;
+import com.group36.healthchecker.repository.PatientRepository;
+import com.group36.healthchecker.repository.UserRepository;
 
 @RestController
 //@RequestMapping("/")
-public class MedicalHistoryController {
+public class UserController {
 
 	@Autowired
-	MedicalHistoryRepository medicalHistoryRepository;
+	UserRepository userRepository;
+	
 
 	@Autowired
 //    TextProcessor textProcessor;
@@ -34,24 +41,34 @@ public class MedicalHistoryController {
 //    }
 
 	// Get All Job Texts
-	@GetMapping("/medicalhistory")
-	public List<MedicalHistory> getPatient() {
-		return medicalHistoryRepository.findAll();
+	@GetMapping("/user")
+	public List<Users> getUser() {
+		return userRepository.findAll();
 	}
 
 	// Create a new Job Text
-	@PostMapping("/medicalhistory")
-	public MedicalHistory createPatient(@Valid @RequestBody MedicalHistory medicalHistory) {
+	@PostMapping("/user")
+	public Users createUser(@Valid @RequestBody Users user) {
 //        ProcessedText processed = analyzeProcessedText(text);
 //    	text.setId((long) 1);
-		return medicalHistoryRepository.save(medicalHistory);
+//		AddressController addressController = new AddressController();
+////		Address address=new Address();
+//		List<Address> address=addressController.getAllAddress();
+//		
+//		Patient_RecordController patientRecordController = new Patient_RecordController();
+//		Patient_Record patientRecord=new Patient_Record();
+//		Patient_Record patientRecord1=patientRecordController.createPatientRecord(patientRecord);
+//		patient.setAddressId(address.getAddressid());
+//		patient.setRecordId(patientRecord1.getRecord_Id());
+//		user.setActive("true");
+		return userRepository.save(user);
 	}
 
-	// Get a Single Job Text
+//	 Get a Single Job Text
 //    @GetMapping("/texts/{id}")
-//    public Patient getNoteById(@PathVariable(value = "id") Long textId) {
-//        return textRepository.findById(textId)
-//                .orElseThrow(() -> new ResourceNotFoundException("Text", "id", textId));
+//    public Users getNoteById(@PathVariable(value = "id") Long userId) {
+//        return userRepository.findById(userId)
+//                .orElseThrow(() -> new ResourceNotFoundException("Text", "id", userId));
 //    }
 
 	// Delete a Job Text

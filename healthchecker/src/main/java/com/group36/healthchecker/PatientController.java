@@ -1,4 +1,4 @@
-package com.example.groupproject.controller;
+package com.group36.healthchecker.controller;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.groupproject.model.Address;
-import com.example.groupproject.model.Patient;
-import com.example.groupproject.model.Patient_Record;
-import com.example.groupproject.repository.PatientRepository;
+import com.group36.healthchecker.model.Address;
+import com.group36.healthchecker.model.Patient;
+import com.group36.healthchecker.model.Patient_Record;
+import com.group36.healthchecker.repository.PatientRepository;
 
 @RestController
 //@RequestMapping("/")
@@ -47,8 +47,9 @@ public class PatientController {
 	public Patient createPatient(@Valid @RequestBody Patient patient) {
 //        ProcessedText processed = analyzeProcessedText(text);
 //    	text.setId((long) 1);
-//		AddressController addressController = new AddressController();
-////		Address address=new Address();
+		AddressController addressController = new AddressController();
+		Address address=new Address();
+//		patient.setRecordId(null);
 //		List<Address> address=addressController.getAllAddress();
 //		
 //		Patient_RecordController patientRecordController = new Patient_RecordController();
