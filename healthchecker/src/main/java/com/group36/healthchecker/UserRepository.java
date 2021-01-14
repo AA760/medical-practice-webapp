@@ -3,9 +3,15 @@ package com.group36.healthchecker.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.group36.healthchecker.model.MedicalHistory;
+import com.group36.healthchecker.model.Users;
 
 @Repository
-public interface MedicalHistoryRepository extends JpaRepository<MedicalHistory, Long> {
+public interface UserRepository extends JpaRepository<Users, Long>{
 
 }
+
+
+
+
+
+
