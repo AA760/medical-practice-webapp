@@ -28,17 +28,6 @@ public class UserController {
 	
 
 	@Autowired
-//    TextProcessor textProcessor;
-
-	// Analyze a Job Text
-//    @PostMapping("/analyze")
-//    public ProcessedText analyzeProcessedText(@Valid @RequestBody ProcessedText text) {
-//        AnalysisResult result = textProcessor.analyze(text.getText());
-//        text.setCountFeminine(result.getCountFeminine());
-//        text.setCountMasculine(result.getCountMasculine());
-//        text.setGenderMap(result.getGenderMap());
-//    	return text;
-//    }
 
 	// Get All Job Texts
 	@GetMapping("/user")
@@ -49,42 +38,7 @@ public class UserController {
 	// Create a new Job Text
 	@PostMapping("/user")
 	public User createUser(@Valid @RequestBody User user) {
-//        ProcessedText processed = analyzeProcessedText(text);
-//    	text.setId((long) 1);
-//		AddressController addressController = new AddressController();
-////		Address address=new Address();
-//		List<Address> address=addressController.getAllAddress();
-//		
-//		Patient_RecordController patientRecordController = new Patient_RecordController();
-//		Patient_Record patientRecord=new Patient_Record();
-//		Patient_Record patientRecord1=patientRecordController.createPatientRecord(patientRecord);
-//		patient.setAddressId(address.getAddressid());
-//		patient.setRecordId(patientRecord1.getRecord_Id());
-//		user.setActive("true");
 		return userRepository.save(user);
 	}
 
-//	 Get a Single Job Text
-//    @GetMapping("/texts/{id}")
-//    public Users getNoteById(@PathVariable(value = "id") Long userId) {
-//        return userRepository.findById(userId)
-//                .orElseThrow(() -> new ResourceNotFoundException("Text", "id", userId));
-//    }
-
-	// Delete a Job Text
-//    @DeleteMapping("/texts/{id}")
-//    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long textId) {
-//        Patient text = textRepository.findById(textId)
-//                .orElseThrow(() -> new ResourceNotFoundException("Text", "id", textId));
-//
-//        textRepository.delete(text);
-//
-//        return ResponseEntity.ok().build();
-//    }
-
-	/*
-	 * public void deleteNote(@PathVariable(value = "id") Long textId) {
-	 * textRepository.deleteById(textId) .orElseThrow(() -> new
-	 * ResourceNotFoundException("Text", "id", textId)); }
-	 */
 }
