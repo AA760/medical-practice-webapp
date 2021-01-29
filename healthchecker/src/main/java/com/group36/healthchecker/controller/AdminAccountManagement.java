@@ -1,4 +1,3 @@
-  
 package com.group36.healthchecker.controller;
 
 import java.util.List;
