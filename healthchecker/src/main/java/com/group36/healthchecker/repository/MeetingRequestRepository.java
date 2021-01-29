@@ -3,10 +3,10 @@ package com.group36.healthchecker.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.group36.healthchecker.model.Users;
+import com.group36.healthchecker.model.MeetingRequest;
 
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long>{
+public interface MeetingRequestRepository extends JpaRepository<MeetingRequest, Long>{
 
 }
 
