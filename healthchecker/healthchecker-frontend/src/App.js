@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import Register from "./Components/register/PatientRegister1";
+import Register from "./Components/PatientRegister1";
 import Login from "./Components/UserLogin";
-import ViewJob from "./Components/viewPreviousAppointments/ViewPatientPreviousAppointments";
-import UploadVideosAndArticles from "./Components/uploadVideosAndArticles/UploadVideosAndArticles";
-import SortVideosAndArticles from "./Components/SortVideosAndArticlesByTime/SortVideosAndArticlesByTime";
+import ViewJob from "./Components/ViewPatientPreviousAppointments";
+import UploadVideosAndArticles from "./Components/UploadVideosAndArticles";
+import SortVideosAndArticles from "./Components/SortVideosAndArticlesByTime";
+import AdminManageAccount from "./Components/AdminManageAccount";
 import './App.css';
 
 class App extends Component {
@@ -14,11 +15,12 @@ class App extends Component {
 				<div>
 					<h1 className="header">Health Checker application</h1>
 					<nav className="topnav">
-						<Link to={'/'} className="nav-link">Patient Register</Link>
+						<Link to={'/'} className="nav-link">Login Page</Link>
 						<Link to={'/register'} className="nav-link">Patient Register</Link>
 						<Link to={'/view'} className="nav-link">View Previous Appointments</Link>
 						<Link to={'/uploadVideosAndArticles'} className="nav-link">Upload Videos And Articles</Link>
 						<Link to={'/sortVideosAndArticles'} className="nav-link">Sort Videos And Articles</Link>
+						<Link to={'/adminManageAccounts'} className="nav-link">Admin - Manage Accounts</Link>
 					</nav>
 					<Switch>
 						<Route exact path='/' component={Login} />
@@ -26,6 +28,7 @@ class App extends Component {
 						<Route path='/view' component={ViewJob} />
 						<Route path='/uploadVideosAndArticles' component={UploadVideosAndArticles} />
 						<Route path='/sortVideosAndArticles' component={SortVideosAndArticles} />
+						<Route path='/adminManageAccounts' component={AdminManageAccount} />
 					</Switch>
 				</div>
 			</Router>
