@@ -18,12 +18,12 @@ public class AppUserDetails implements UserDetails
     private boolean active;
     private List<GrantedAuthority> authorities;
  
-    public AppUserDetails(User user) 
+    public AppUserDetails(User2 user2) 
     {
-        this.userName = user.getUserName();
-        this.password = user.getPassword();
-        this.active = user.isActive();
-        this.authorities = Arrays.stream(user.getRoles().split(","))
+        this.userName = user2.getUserName();
+        this.password = user2.getPassword();
+        this.active = user2.isActive();
+        this.authorities = Arrays.stream(user2.getRoles().split(","))
                     .map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
     }

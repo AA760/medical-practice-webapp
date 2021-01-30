@@ -1,21 +1,12 @@
+  
 package com.group36.healthchecker.repository;
 
-import com.group36.healthchecker.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import java.util.Optional;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Integer> 
-{
-    
-	
-	Optional<User> findByUserName(String userName);
-    
-    @Query(value = "SELECT id, user_Name, roles FROM users", nativeQuery = true)
-    public List<Object[]> findUsers();
-    
-   
-    
-    
+import com.group36.healthchecker.model.Users;
+
+@Repository
+public interface UserRepository extends JpaRepository<Users, Long>{
+
 }

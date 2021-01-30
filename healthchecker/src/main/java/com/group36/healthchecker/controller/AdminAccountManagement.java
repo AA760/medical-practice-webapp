@@ -11,28 +11,28 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.group36.healthchecker.model.User;
-import com.group36.healthchecker.repository.UserRepository;
+import com.group36.healthchecker.model.User2;
+import com.group36.healthchecker.repository.UserRepository2;
 
 @RestController
 @RequestMapping("/")
 public class AdminAccountManagement 
 {
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository2 userRepository2;
 	
 	
 	//Get all users
 	@GetMapping("/users")
 	public List<Object[]> getAllUsers(){
-		return userRepository.findUsers();
+		return userRepository2.findUsers();
 	}
 	
 	//Create new user login
 	@PostMapping("/createUser")
-	public User save(@RequestBody User user)
+	public User2 save(@RequestBody User2 user2)
 	{
-		return userRepository.save(user);
+		return userRepository2.save(user2);
 		
 	}
 	
@@ -40,10 +40,10 @@ public class AdminAccountManagement
 	@DeleteMapping("/deleteUserName/{userName}")
 	public String deleteUserName(@PathVariable String userName)
 	{
-		Optional<User> user = userRepository.findByUserName(userName);
-		if(user.isPresent())
+		Optional<User2> user2 = userRepository2.findByUserName(userName);
+		if(user2.isPresent())
 		{
-			userRepository.delete(user.get());
+			userRepository2.delete(user2.get());
 			return "Deletion successful for user: " +userName;
 		}
 		
@@ -58,10 +58,10 @@ public class AdminAccountManagement
 	@DeleteMapping("/deleteId/{id}")
 	public String deleteId(@PathVariable int id)
 	{
-		Optional<User> user = userRepository.findById(id);
-		if(user.isPresent())
+		Optional<User2> user2 = userRepository2.findById(id);
+		if(user2.isPresent())
 		{
-			userRepository.delete(user.get());
+			userRepository2.delete(user2.get());
 			return "Deletion successful for user: " +id;
 		}
 		
@@ -74,9 +74,9 @@ public class AdminAccountManagement
 	
 	//Change password by ID
 	@PutMapping("/changePassword")
-	public User update(@RequestBody User user)
+	public User2 update(@RequestBody User2 user2)
 	{
-	return userRepository.save(user);
+	return userRepository2.save(user2);
 	}
 	
 	

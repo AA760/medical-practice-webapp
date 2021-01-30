@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 //import com.group36.healthchecker.exception.ResourceNotFoundException;
-import com.group36.healthchecker.model.Address;
-import com.group36.healthchecker.model.Patient;
-import com.group36.healthchecker.model.Patient_Record;
-import com.group36.healthchecker.model.User;
-import com.group36.healthchecker.repository.PatientRepository;
+
+import com.group36.healthchecker.model.Users;
+
 import com.group36.healthchecker.repository.UserRepository;
 
 @RestController
@@ -31,13 +29,13 @@ public class UserController {
 
 	// Get All Job Texts
 	@GetMapping("/user")
-	public List<User> getUser() {
+	public List<Users> getUser() {
 		return userRepository.findAll();
 	}
 
 	// Create a new Job Text
 	@PostMapping("/user")
-	public User createUser(@Valid @RequestBody User user) {
+	public Users createUser(@Valid @RequestBody Users user) {
 		return userRepository.save(user);
 	}
 

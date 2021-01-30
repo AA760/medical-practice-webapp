@@ -3,11 +3,15 @@ package com.group36.healthchecker.model;
 import javax.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;
 
+
 @Entity
 @Table(name = "users")
+
 @DynamicUpdate 
-public class User 
+public class User2
 {
+
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -19,6 +23,7 @@ public class User
     private boolean active;
     @Column(nullable = false, updatable = false)
     private String roles;
+    
     
 
     public int getId() 
@@ -70,6 +75,7 @@ public class User
     {
         this.roles = roles;
     }
+
     
     
 }

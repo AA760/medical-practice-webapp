@@ -1,8 +1,8 @@
 package com.group36.healthchecker.processor;
 
 import com.group36.healthchecker.model.AppUserDetails;
-import com.group36.healthchecker.model.User;
-import com.group36.healthchecker.repository.UserRepository;
+import com.group36.healthchecker.model.User2;
+import com.group36.healthchecker.repository.UserRepository2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,16 +16,16 @@ public class AppUserDetailsService implements UserDetailsService
 {
 
     @Autowired
-    UserRepository userRepository;
+    UserRepository2 userRepository2;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException
     	{
-        Optional<User> user = userRepository.findByUserName(userName);
+        Optional<User2> user2 = userRepository2.findByUserName(userName);
 
-        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
+        user2.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
 
-        return user.map(AppUserDetails::new).get();
+        return user2.map(AppUserDetails::new).get();
     }
 
 	
