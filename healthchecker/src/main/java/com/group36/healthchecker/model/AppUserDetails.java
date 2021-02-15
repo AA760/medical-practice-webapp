@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class AppUserDetails implements UserDetails 
 {
 
+	private int id;
     private String userName;
     private String password;
     private boolean active;
@@ -20,7 +21,8 @@ public class AppUserDetails implements UserDetails
  
     public AppUserDetails(User2 user2) 
     {
-        this.userName = user2.getUserName();
+    	this.id = user2.getId();
+    	this.userName = user2.getUserName();
         this.password = user2.getPassword();
         this.active = user2.isActive();
         this.authorities = Arrays.stream(user2.getRoles().split(","))
@@ -33,7 +35,12 @@ public class AppUserDetails implements UserDetails
     {
         return authorities;
     }
-
+    
+    public int getId()
+    {
+    	return id;
+    }
+    
     @Override
     public String getPassword() 
     {

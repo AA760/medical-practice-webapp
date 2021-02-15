@@ -13,6 +13,7 @@ public class HealthcheckerApplication
 	public static void main(String[] args) 
 	{
 		SpringApplication.run(HealthcheckerApplication.class, args);
+		
 	}
 
 }
