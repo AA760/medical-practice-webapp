@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel; 
@@ -22,7 +21,7 @@ public class View_treatments{
 	public static void main(String[] args) {
 		Treatmentviewer();
 	}
-	private static void Treatmentviewer() {
+	public static void Treatmentviewer() {
 		JFrame TrtFrame = new JFrame("Treatments");
 		TrtFrame.setSize(450, 300);
 		TrtFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,7 +40,19 @@ public class View_treatments{
 		
 		JPanel MainPanel2 = new JPanel();
 		MainPanel2.setBackground(new Color(78-150-55));
-		MainPanel2.setPreferredSize(new Dimension(250, 100));
+		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		
+		JPanel MainPanel3 = new JPanel();
+		MainPanel2.setBackground(new Color(78-150-55));
+		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		
+		JPanel MainPanel4 = new JPanel();
+		MainPanel2.setBackground(new Color(78-150-55));
+		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		
+		JPanel MainPanel5 = new JPanel();
+		MainPanel2.setBackground(new Color(78-150-55));
+		MainPanel2.setPreferredSize(new Dimension(200, 25));
 
 		JPanel ButtonsPanel = new JPanel();
 		ButtonsPanel.setBackground(new Color(200-25-255)); 
@@ -56,6 +67,7 @@ public class View_treatments{
 		JLabel InfoCategories3 = new JLabel("Effectiveness:");
 		
 		JTextField txttreatmentID = new JTextField();
+		txttreatmentID.setSize(200,25);
 		JTextField txtname = new JTextField();
 		JTextField txtDescription = new JTextField();
 		JTextField txteffectiveness = new JTextField();
@@ -94,7 +106,20 @@ public class View_treatments{
 		JButton Savebutton = new JButton("Save");
 		Savebutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				Savetodb();
+				Connection con = con();
+				try {
+					String query = "insert into treatment(?,?,?,?)";
+					PreparedStatement prepstatement = con.prepareStatement(query);
+					prepstatement.setString(1, txttreatmentID.getText());
+					prepstatement.setString(2, txtname.getText());
+					prepstatement.setString(3, txtDescription.getText());
+					prepstatement.setString(4, txteffectiveness.getText());
+					prepstatement.execute();
+					
+					JOptionPane.showMessageDialog(null,"Data Saved");
+				} catch(Exception e1) {
+					System.out.println("Error"+ e1);
+				}
 			}
 		});
 		
@@ -105,9 +130,9 @@ public class View_treatments{
 		MainPanel.add(InfoCategories2);
 		MainPanel.add(InfoCategories3);
 		MainPanel2.add(txttreatmentID);
-		MainPanel2.add(txtname);
-		MainPanel2.add(txtDescription);
-		MainPanel2.add(txteffectiveness);
+		MainPanel3.add(txtname);
+		MainPanel4.add(txtDescription);
+		MainPanel5.add(txteffectiveness);
 		ButtonsPanel.add(Prevbutton);
 		ButtonsPanel.add(Addbutton);
 		ButtonsPanel.add(Editbutton);
@@ -117,15 +142,18 @@ public class View_treatments{
 		TrtFrame.add(TitlePanel);
 		TrtFrame.add(MainPanel);
 		TrtFrame.add(MainPanel2);
+		TrtFrame.add(MainPanel3);
+		TrtFrame.add(MainPanel4);
+		TrtFrame.add(MainPanel5);
 		TrtFrame.add(ButtonsPanel);
 		TrtFrame.setVisible(true);
 	}
 	
 	static Connection con() {
 		try {
-			String driver = "com.mysql.jdbc.Driver";
+			//String driver = "com.mysql.jdbc.Driver";
 			String url = "jdbc:mysql://172.31.82.87:3306/Group_Project";
-			Class.forName(driver);
+			//Class.forName(driver);
 			
 			return DriverManager.getConnection(url,"root","GrouP#36");
 		} catch (Exception e) {
@@ -133,22 +161,4 @@ public class View_treatments{
 		}
 		return null;
 	}
-	
-	private static void Savetodb() {
-		Connection con = con();
-		try {
-			String query = "insert into treatment(?,?,?,?)";
-			PreparedStatement prepstatement = con.prepareStatement(query);
-			prepstatement.setString(1,txttreatmentID.getText());
-			prepstatement.setString(2,txtname.getText());
-			prepstatement.setString(3,txtDescription.getText());
-			prepstatement.setString(4,txteffectiveness.getText());
-			prepstatement.execute();
-			
-			JOptionPane.showMessageDialog(null,"Data Saved");
-		} catch(Exception e) {
-			System.out.println("Error"+ e);
-		}
-	}
-
 }
