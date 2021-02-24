@@ -1,8 +1,8 @@
 package com.group36.healthchecker.view_treatment;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -12,17 +12,19 @@ import javax.swing.table.DefaultTableModel;
 
 public class View_treatments{		
 	public static void main(String[] args) {
-		SpringApplication.run(View_treatments.class,args);
+		//SpringApplication.run(View_treatments.class,args);
 		Treatmentviewer();
 	}
 	public static void Treatmentviewer() {
-		JFrame TrtFrame = new JFrame("Treatments");
+		System.out.println("Here are all the Treatments: ");
+		JTable treatmenttable = new JTable();
+		Object [] columns = {"Treatment ID","Treatment Name","Treatment Description","Treatment Effectiveness"};
+		DefaultTableModel treatmentmodel = new DefaultTableModel();
+		
+		JFrame TrtFrame = new JFrame("Add a new Treatment to the List:");
 		TrtFrame.setSize(450, 300);
 		TrtFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		Container TrtContainer = TrtFrame.getContentPane();
-		TrtContainer.setBackground(new Color(200-155-200));
-		TrtContainer.setLayout(new FlowLayout());
 		
 		JPanel TitlePanel = new JPanel();
 		TitlePanel.setBackground(new Color(20-244-109));
