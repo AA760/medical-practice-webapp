@@ -18,7 +18,7 @@ public class View_treatments{
 	public static void Treatmentviewer() {
 		System.out.println("Here are all the Treatments: ");
 		JTable treatmenttable = new JTable();
-		Object [] columns = {"Treatment ID","Treatment Name","Treatment Description","Treatment Effectiveness"};
+		Object [] columns = {"Treatment ID","Treatment Name","Description","Effectiveness"};
 		DefaultTableModel treatmentmodel = new DefaultTableModel();
 		
 		JFrame TrtFrame = new JFrame("Treatment List");
@@ -102,14 +102,14 @@ public class View_treatments{
 		treatmenttable.setSelectionBackground(Color.white);
 		treatmenttable.setGridColor(Color.green);
 		treatmenttable.setSelectionForeground(Color.gray);
-		treatmenttable.setFont(new Font("Calibri",Font.PLAIN, 13));
+		treatmenttable.setFont(new Font("Calibri",Font.PLAIN, 11));
 		treatmenttable.setRowHeight(40);
 		treatmenttable.setAutoCreateRowSorter(true);
 		
 		JScrollPane tablepane = new JScrollPane(treatmenttable);
 		tablepane.setForeground(Color.red);
 		tablepane.setBackground(Color.white);
-		tablepane.setBounds(10,10,700,350);
+		tablepane.setBounds(20,20,700,450);
 		southPanel.add(tablepane);
 
 		TrtFrame.add(MainPanel);
