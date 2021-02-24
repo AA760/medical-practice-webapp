@@ -27,25 +27,11 @@ public class View_treatments{
 		Container TrtContainer = TrtFrame.getContentPane();
 		
 		JPanel titlePanel = new JPanel();
-		//titlePanel.setBackground(new Color(20-244-109));
-		//titlePanel.setPreferredSize(new Dimension(350, 40));
-		
 		JPanel MainPanel = new JPanel();
-		//MainPanel.setBackground(new Color(20-244-109));
-		//MainPanel.setPreferredSize(new Dimension(350, 40));
-		
 		JPanel northPanel = new JPanel();
-		//northPanel.setBackground(new Color(200-255-255));
-		//northPanel.setPreferredSize(new Dimension(100, 100));
-		
 		JPanel buttonsPanel = new JPanel();
-		//buttonsPanel.setBackground(new Color(78-150-55));
-		//buttonsPanel.setPreferredSize(new Dimension(200, 25));
-		
 		JPanel southPanel = new JPanel();
-		//southPanel.setBackground(new Color(78-150-55));
-		//southPanel.setPreferredSize(new Dimension(200, 25));
-
+		
 		JLabel TitleLabel = new JLabel("Treatments");
 		TitleLabel.setFont(new Font("Arial", Font.BOLD, 27));
 		titlePanel.add(TitleLabel);
@@ -77,6 +63,7 @@ public class View_treatments{
 				
 			}
 		});
+		
 		JButton Deletebutton = new JButton("Delete treatment");
 		buttonsPanel.add(Deletebutton);
 		Deletebutton.addActionListener(new ActionListener(){
@@ -106,7 +93,24 @@ public class View_treatments{
 			}
 		});
 		
+		Object [] row = new Object[4];
+		treatmentmodel.setColumnIdentifiers(columns);
+		treatmenttable.setModel(treatmentmodel);
 		
+		treatmenttable.setBackground(Color.white);
+		treatmenttable.setForeground(Color.black);
+		treatmenttable.setSelectionBackground(Color.white);
+		treatmenttable.setGridColor(Color.green);
+		treatmenttable.setSelectionForeground(Color.gray);
+		treatmenttable.setFont(new Font("Calibri",Font.PLAIN, 13));
+		treatmenttable.setRowHeight(40);
+		treatmenttable.setAutoCreateRowSorter(true);
+		
+		JScrollPane tablepane = new JScrollPane(treatmenttable);
+		tablepane.setForeground(Color.red);
+		tablepane.setBackground(Color.white);
+		tablepane.setBounds(10,10,700,350);
+		southPanel.add(tablepane);
 
 		TrtFrame.add(MainPanel);
 		MainPanel.add(titlePanel);
