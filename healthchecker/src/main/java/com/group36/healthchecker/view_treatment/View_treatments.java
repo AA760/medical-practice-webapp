@@ -35,37 +35,31 @@ public class View_treatments{
 		//northPanel.setPreferredSize(new Dimension(100, 100));
 		
 		JPanel southPanel = new JPanel();
-		/*southPanel.setBackground(new Color(78-150-55));
+		//southPanel.setBackground(new Color(78-150-55));
 		//southPanel.setPreferredSize(new Dimension(200, 25));
-		
-		JPanel MainPanel3 = new JPanel();
-		MainPanel3.setBackground(new Color(78-150-55));
-		MainPanel3.setPreferredSize(new Dimension(200, 25));
-		
-		JPanel MainPanel4 = new JPanel();
-		MainPanel4.setBackground(new Color(78-150-55));
-		MainPanel4.setPreferredSize(new Dimension(200, 25));
-		
-		JPanel MainPanel5 = new JPanel();
-		MainPanel5.setBackground(new Color(78-150-55));
-		MainPanel5.setPreferredSize(new Dimension(200, 25));
-
-		JPanel ButtonsPanel = new JPanel();
-		ButtonsPanel.setBackground(new Color(200-25-255)); 
-		ButtonsPanel.setPreferredSize(new Dimension(400, 70));*/
 
 		JLabel TitleLabel = new JLabel("Treatments");
 		TitleLabel.setFont(new Font("Arial", Font.BOLD, 27));
 		
-		JLabel InfoCategories = new JLabel("Treatment ID:");
-		JLabel InfoCategories1 = new JLabel("Name:");
-		JLabel InfoCategories2= new JLabel("Description:");
-		JLabel InfoCategories3 = new JLabel("Effectiveness:");
-		
+		JLabel lblID = new JLabel("Treatment ID:");
 		JTextField txttreatmentID = new JTextField(5);
+		northPanel.add(lblID);
+		northPanel.add(txttreatmentID);
+		
+		JLabel lblname = new JLabel("Name:");
 		JTextField txtname = new JTextField(10);
+		northPanel.add(lblname);
+		northPanel.add(txtname);
+		
+		JLabel lbldescription= new JLabel("Description:");
 		JTextField txtDescription = new JTextField(15);
+		northPanel.add(lbldescription);
+		northPanel.add(txtDescription);
+		
+		JLabel lbleffectiveness = new JLabel("Effectiveness:");
 		JTextField txteffectiveness = new JTextField(5);
+		northPanel.add(lbleffectiveness);
+		northPanel.add(txteffectiveness);
 		
 		JButton Addbutton = new JButton("Add");
 		Addbutton.addActionListener(new ActionListener(){
@@ -101,25 +95,10 @@ public class View_treatments{
 		});
 		
 		
-		MainPanel.add(TitleLabel);
-		MainPanel.add(InfoCategories);
-		MainPanel.add(InfoCategories1);
-		MainPanel.add(InfoCategories2);
-		MainPanel.add(InfoCategories3);
-		MainPanel2.add(txttreatmentID);
-		MainPanel3.add(txtname);
-		MainPanel4.add(txtDescription);
-		MainPanel5.add(txteffectiveness);
-		ButtonsPanel.add(Addbutton);
-		ButtonsPanel.add(Deletebutton);
-		ButtonsPanel.add(Savebutton);
-		TrtFrame.add(TitlePanel);
+
 		TrtFrame.add(MainPanel);
-		TrtFrame.add(MainPanel2);
-		TrtFrame.add(MainPanel3);
-		TrtFrame.add(MainPanel4);
-		TrtFrame.add(MainPanel5);
-		TrtFrame.add(ButtonsPanel);
+		MainPanel.add(northPanel);
+		MainPanel.add(southPanel);
 		TrtFrame.setVisible(true);
 	}
 	
