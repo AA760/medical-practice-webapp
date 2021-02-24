@@ -22,9 +22,13 @@ public class View_treatments{
 		DefaultTableModel treatmentmodel = new DefaultTableModel();
 		
 		JFrame TrtFrame = new JFrame("Treatment List");
-		TrtFrame.setSize(450, 300);
+		TrtFrame.setSize(850, 300);
 		TrtFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container TrtContainer = TrtFrame.getContentPane();
+		
+		JPanel titlePanel = new JPanel();
+		//MainPanel.setBackground(new Color(20-244-109));
+		//MainPanel.setPreferredSize(new Dimension(350, 40));
 		
 		JPanel MainPanel = new JPanel();
 		//MainPanel.setBackground(new Color(20-244-109));
@@ -40,6 +44,7 @@ public class View_treatments{
 
 		JLabel TitleLabel = new JLabel("Treatments");
 		TitleLabel.setFont(new Font("Arial", Font.BOLD, 27));
+		titlePanel.add(TitleLabel);
 		
 		JLabel lblID = new JLabel("Treatment ID:");
 		JTextField txttreatmentID = new JTextField(5);
@@ -61,13 +66,13 @@ public class View_treatments{
 		northPanel.add(lbleffectiveness);
 		northPanel.add(txteffectiveness);
 		
-		JButton Addbutton = new JButton("Add");
+		JButton Addbutton = new JButton("Add treatment");
 		Addbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		JButton Deletebutton = new JButton("Delete");
+		JButton Deletebutton = new JButton("Delete treatment");
 		Deletebutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
@@ -97,6 +102,7 @@ public class View_treatments{
 		
 
 		TrtFrame.add(MainPanel);
+		MainPanel.add(titlePanel);
 		MainPanel.add(northPanel);
 		MainPanel.add(southPanel);
 		TrtFrame.setVisible(true);
