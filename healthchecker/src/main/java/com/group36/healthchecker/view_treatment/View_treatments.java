@@ -21,38 +21,38 @@ public class View_treatments{
 		Object [] columns = {"Treatment ID","Treatment Name","Treatment Description","Treatment Effectiveness"};
 		DefaultTableModel treatmentmodel = new DefaultTableModel();
 		
-		JFrame TrtFrame = new JFrame("Add a new Treatment to the List:");
+		JFrame TrtFrame = new JFrame("Treatment List");
 		TrtFrame.setSize(450, 300);
 		TrtFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container TrtContainer = TrtFrame.getContentPane();
 		
-		JPanel TitlePanel = new JPanel();
-		TitlePanel.setBackground(new Color(20-244-109));
-		TitlePanel.setPreferredSize(new Dimension(350, 40));
-		
 		JPanel MainPanel = new JPanel();
-		MainPanel.setBackground(new Color(200-255-255));
-		MainPanel.setPreferredSize(new Dimension(100, 100));
+		//MainPanel.setBackground(new Color(20-244-109));
+		//MainPanel.setPreferredSize(new Dimension(350, 40));
 		
-		JPanel MainPanel2 = new JPanel();
-		MainPanel2.setBackground(new Color(78-150-55));
-		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		JPanel northPanel = new JPanel();
+		//northPanel.setBackground(new Color(200-255-255));
+		//northPanel.setPreferredSize(new Dimension(100, 100));
+		
+		JPanel southPanel = new JPanel();
+		/*southPanel.setBackground(new Color(78-150-55));
+		//southPanel.setPreferredSize(new Dimension(200, 25));
 		
 		JPanel MainPanel3 = new JPanel();
-		MainPanel2.setBackground(new Color(78-150-55));
-		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		MainPanel3.setBackground(new Color(78-150-55));
+		MainPanel3.setPreferredSize(new Dimension(200, 25));
 		
 		JPanel MainPanel4 = new JPanel();
-		MainPanel2.setBackground(new Color(78-150-55));
-		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		MainPanel4.setBackground(new Color(78-150-55));
+		MainPanel4.setPreferredSize(new Dimension(200, 25));
 		
 		JPanel MainPanel5 = new JPanel();
-		MainPanel2.setBackground(new Color(78-150-55));
-		MainPanel2.setPreferredSize(new Dimension(200, 25));
+		MainPanel5.setBackground(new Color(78-150-55));
+		MainPanel5.setPreferredSize(new Dimension(200, 25));
 
 		JPanel ButtonsPanel = new JPanel();
 		ButtonsPanel.setBackground(new Color(200-25-255)); 
-		ButtonsPanel.setPreferredSize(new Dimension(400, 70));
+		ButtonsPanel.setPreferredSize(new Dimension(400, 70));*/
 
 		JLabel TitleLabel = new JLabel("Treatments");
 		TitleLabel.setFont(new Font("Arial", Font.BOLD, 27));
@@ -101,7 +101,7 @@ public class View_treatments{
 		});
 		
 		
-		TitlePanel.add(TitleLabel);
+		MainPanel.add(TitleLabel);
 		MainPanel.add(InfoCategories);
 		MainPanel.add(InfoCategories1);
 		MainPanel.add(InfoCategories2);
