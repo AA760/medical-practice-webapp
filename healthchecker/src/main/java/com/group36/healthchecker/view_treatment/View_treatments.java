@@ -1,24 +1,18 @@
 package com.group36.healthchecker.view_treatment;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel; 
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.Vector;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class View_treatments{		
 	public static void main(String[] args) {
+		SpringApplication.run(View_treatments.class,args);
 		Treatmentviewer();
 	}
 	public static void Treatmentviewer() {
@@ -66,38 +60,19 @@ public class View_treatments{
 		JLabel InfoCategories2= new JLabel("Description:");
 		JLabel InfoCategories3 = new JLabel("Effectiveness:");
 		
-		JTextField txttreatmentID = new JTextField();
-		txttreatmentID.setSize(200,25);
-		JTextField txtname = new JTextField();
-		JTextField txtDescription = new JTextField();
-		JTextField txteffectiveness = new JTextField();
+		JTextField txttreatmentID = new JTextField(5);
+		JTextField txtname = new JTextField(10);
+		JTextField txtDescription = new JTextField(15);
+		JTextField txteffectiveness = new JTextField(5);
 		
-		JButton Prevbutton = new JButton("Previous");
-		Prevbutton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		JButton Addbutton = new JButton("Add");
 		Addbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		JButton Editbutton = new JButton("Edit");
-		Editbutton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		JButton Deletebutton = new JButton("Delete");
 		Deletebutton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		JButton Nextbutton = new JButton("Next");
-		Nextbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -133,11 +108,8 @@ public class View_treatments{
 		MainPanel3.add(txtname);
 		MainPanel4.add(txtDescription);
 		MainPanel5.add(txteffectiveness);
-		ButtonsPanel.add(Prevbutton);
 		ButtonsPanel.add(Addbutton);
-		ButtonsPanel.add(Editbutton);
 		ButtonsPanel.add(Deletebutton);
-		ButtonsPanel.add(Nextbutton);
 		ButtonsPanel.add(Savebutton);
 		TrtFrame.add(TitlePanel);
 		TrtFrame.add(MainPanel);
