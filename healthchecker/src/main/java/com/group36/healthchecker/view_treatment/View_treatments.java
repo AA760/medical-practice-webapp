@@ -27,8 +27,8 @@ public class View_treatments{
 		Container TrtContainer = TrtFrame.getContentPane();
 		
 		JPanel titlePanel = new JPanel();
-		//MainPanel.setBackground(new Color(20-244-109));
-		//MainPanel.setPreferredSize(new Dimension(350, 40));
+		//titlePanel.setBackground(new Color(20-244-109));
+		//titlePanel.setPreferredSize(new Dimension(350, 40));
 		
 		JPanel MainPanel = new JPanel();
 		//MainPanel.setBackground(new Color(20-244-109));
@@ -37,6 +37,10 @@ public class View_treatments{
 		JPanel northPanel = new JPanel();
 		//northPanel.setBackground(new Color(200-255-255));
 		//northPanel.setPreferredSize(new Dimension(100, 100));
+		
+		JPanel buttonsPanel = new JPanel();
+		//buttonsPanel.setBackground(new Color(78-150-55));
+		//buttonsPanel.setPreferredSize(new Dimension(200, 25));
 		
 		JPanel southPanel = new JPanel();
 		//southPanel.setBackground(new Color(78-150-55));
@@ -67,19 +71,22 @@ public class View_treatments{
 		northPanel.add(txteffectiveness);
 		
 		JButton Addbutton = new JButton("Add treatment");
+		buttonsPanel.add(Addbutton);
 		Addbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		JButton Deletebutton = new JButton("Delete treatment");
+		buttonsPanel.add(Deletebutton);
 		Deletebutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
-		JButton Savebutton = new JButton("Save");
+		JButton Savebutton = new JButton("Save treatment");
+		buttonsPanel.add(Savebutton);
 		Savebutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				Connection con = con();
@@ -104,6 +111,7 @@ public class View_treatments{
 		TrtFrame.add(MainPanel);
 		MainPanel.add(titlePanel);
 		MainPanel.add(northPanel);
+		MainPanel.add(buttonsPanel);
 		MainPanel.add(southPanel);
 		TrtFrame.setVisible(true);
 	}
