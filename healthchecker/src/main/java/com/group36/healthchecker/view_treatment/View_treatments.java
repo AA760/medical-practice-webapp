@@ -56,11 +56,55 @@ public class View_treatments{
 		northPanel.add(lbleffectiveness);
 		northPanel.add(txteffectiveness);
 		
+		Object [] row = new Object[4];
+		treatmentmodel.setColumnIdentifiers(columns);
+		treatmenttable.setModel(treatmentmodel);
+		
+		treatmenttable.setBackground(Color.white);
+		treatmenttable.setForeground(Color.black);
+		treatmenttable.setSelectionBackground(Color.white);
+		treatmenttable.setGridColor(Color.green);
+		treatmenttable.setSelectionForeground(Color.gray);
+		treatmenttable.setFont(new Font("Calibri",Font.PLAIN, 11));
+		treatmenttable.setRowHeight(40);
+		treatmenttable.setAutoCreateRowSorter(true);
+		
+		JScrollPane tablepane = new JScrollPane(treatmenttable);
+		tablepane.setForeground(Color.red);
+		tablepane.setBackground(Color.white);
+		tablepane.setBounds(20,20,700,450);
+		southPanel.add(tablepane);
+
 		JButton Addbutton = new JButton("Add treatment");
 		buttonsPanel.add(Addbutton);
 		Addbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+				row[0] = txttreatmentID.getText();
+				row[1] = txtname.getText();
+				row[2] = txtDescription.getText();
+				row[3] = txteffectiveness.getText();
 				
+				treatmentmodel.addRow(row);
+				
+				String url = "jdbc:mysql://172.31.82.87:3306/Group_Project";
+				String username = "root";
+				String password = "GrouP#36";
+				
+				try {
+					Connection connect = DriverManager.getConnection(url,username,password);
+					System.out.println("Connection Successful");
+					
+					String sql = "INSERT INTO treatment(treatment_Id,name,description,effective_OnDisease_Id)VALUES(?,?,?,?)";
+					PreparedStatement prepstatement = connect.prepareStatement(sql);
+					prepstatement.setString(1, txttreatmentID.getText());
+					prepstatement.setString(2, txtname.getText());
+					prepstatement.setString(3, txtDescription.getText());
+					prepstatement.setString(4, txteffectiveness.getText());
+					
+				}catch(SQLException e1) {
+					System.out.println("Connection Failed");
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -68,7 +112,13 @@ public class View_treatments{
 		buttonsPanel.add(Deletebutton);
 		Deletebutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				
+				int i = treatmenttable.getSelectedRow();
+				if(i>=0) {
+					treatmentmodel.removeRow(i);
+				}
+				else {
+					JOptionPane.showMessageDialog(TrtFrame, "Please Select a Treatment to remove");
+				}
 			}
 		});
 		
@@ -93,31 +143,13 @@ public class View_treatments{
 			}
 		});
 		
-		Object [] row = new Object[4];
-		treatmentmodel.setColumnIdentifiers(columns);
-		treatmenttable.setModel(treatmentmodel);
-		
-		treatmenttable.setBackground(Color.white);
-		treatmenttable.setForeground(Color.black);
-		treatmenttable.setSelectionBackground(Color.white);
-		treatmenttable.setGridColor(Color.green);
-		treatmenttable.setSelectionForeground(Color.gray);
-		treatmenttable.setFont(new Font("Calibri",Font.PLAIN, 11));
-		treatmenttable.setRowHeight(40);
-		treatmenttable.setAutoCreateRowSorter(true);
-		
-		JScrollPane tablepane = new JScrollPane(treatmenttable);
-		tablepane.setForeground(Color.red);
-		tablepane.setBackground(Color.white);
-		tablepane.setBounds(20,20,700,450);
-		southPanel.add(tablepane);
-
 		TrtFrame.add(MainPanel);
 		MainPanel.add(titlePanel);
 		MainPanel.add(northPanel);
 		MainPanel.add(buttonsPanel);
 		MainPanel.add(southPanel);
 		TrtFrame.setVisible(true);
+		
 	}
 	
 	static Connection con() {
