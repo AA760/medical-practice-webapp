@@ -88,18 +88,26 @@ public class View_treatments{
 				
 				String url = "jdbc:mysql://172.31.82.87:3306/Group_Project";
 				String username = "root";
-				String password = "GrouP#36";
+				String password = "GrouP#36.";
 				
 				try {
 					Connection connect = DriverManager.getConnection(url,username,password);
 					System.out.println("Connection Successful");
 					
-					String sql = "INSERT INTO treatment(treatment_Id,name,description,effective_OnDisease_Id)VALUES(?,?,?,?)";
+					String sql = "INSERT INTO treatment(treatment_Id,name,description,effective_On_Disease_Id)VALUES(?,?,?,?)";
 					PreparedStatement prepstatement = connect.prepareStatement(sql);
 					prepstatement.setString(1, txttreatmentID.getText());
 					prepstatement.setString(2, txtname.getText());
 					prepstatement.setString(3, txtDescription.getText());
 					prepstatement.setString(4, txteffectiveness.getText());
+					
+					int rows = prepstatement.executeUpdate();
+					if (rows>0) {
+						System.out.println("Row has been inserted");
+						System.out.println("Inserted data includes: " + txttreatmentID.getText() + " " + txtname.getText() + " " + txtDescription.getText() + " " + txteffectiveness.getText());
+					}
+					prepstatement.close();
+					connect.close();
 					
 				}catch(SQLException e1) {
 					System.out.println("Connection Failed");
