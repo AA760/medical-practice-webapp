@@ -130,23 +130,48 @@ public class View_treatments{
 			}
 		});
 		
-		JButton Savebutton = new JButton("Save treatment");
-		buttonsPanel.add(Savebutton);
-		Savebutton.addActionListener(new ActionListener(){
+		JButton viewbutton = new JButton("View treatment");
+		buttonsPanel.add(viewbutton);
+		viewbutton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				Connection con = con();
+				String url = "jdbc:mysql://172.31.82.87:3306/Group_Project";
+				String username = "root";
+				String password = "GrouP#36.";
+				
 				try {
-					String query = "insert into treatment(?,?,?,?)";
-					PreparedStatement prepstatement = con.prepareStatement(query);
-					prepstatement.setString(1, txttreatmentID.getText());
-					prepstatement.setString(2, txtname.getText());
-					prepstatement.setString(3, txtDescription.getText());
-					prepstatement.setString(4, txteffectiveness.getText());
-					prepstatement.execute();
+					Connection connection = DriverManager.getConnection(url, username,password);
+					Statement st = connection.createStatement(); 
+					System.out.println("Connection Successful");
+				//mySql query 
+				
+					String sql = "SELECT * from treatment";
+					ResultSet rs = st.executeQuery(sql);
+				
+					while(rs.next()) {
+						
+					//Adding data until db table is all finished
+						
+						String id = String.valueOf(rs.getString("treatment_Id")); 
+						String name = rs.getString("name");
+						String description = rs.getString("description");
+						String effective_On_Disease_Id = rs.getString("effective_On_Disease_Id");
 					
-					JOptionPane.showMessageDialog(null,"Data Saved");
-				} catch(Exception e1) {
-					System.out.println("Error"+ e1);
+					//String array for store data into JTable
+						
+						String dbTable []= {id,name, description, effective_On_Disease_Id}; 
+						DefaultTableModel tblModel = (DefaultTableModel)treatmenttable.getModel();
+						
+					//Adding string array data into the table
+						tblModel.addRow(dbTable);
+											
+					}
+					st.close();
+					connection.close();
+					
+				} catch (SQLException e1) {
+					System.out.println("Connected failed ");
+					
+					e1.printStackTrace();
 				}
 			}
 		});
