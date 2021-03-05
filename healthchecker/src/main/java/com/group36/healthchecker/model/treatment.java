@@ -65,5 +65,9 @@ public class treatment implements Serializable {
 	public void seteffective_On_Disease_Id(Integer effective_On_Disease_Id) {
 		this.effective_On_Disease_Id = effective_On_Disease_Id;
 	}
+	
+	public static long getSvuid() {
+		return serialVersionUID;
+	}
 
 }
