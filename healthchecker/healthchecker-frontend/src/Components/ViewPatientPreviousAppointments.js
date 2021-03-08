@@ -11,6 +11,9 @@ export default function ViewJob() {
 
 	const [responsePatientID, setResponsePatientId] = React.useState("");
 	const patientId = event => setPatientId(event.target.value);
+	
+	//stores currently logged in user's ID
+	const [currentId, setCurrentId] = React.useState("");
 
 	
 	let isLoading = true;
@@ -49,8 +52,32 @@ axios({
 
 		});
 	}, []);
+	
+	  
+	//retrieves ID of the user currently logged in
+	  axios({
+      method: 'get',
+      url: '/id',
+    })
+	.then((response) => {
+		console.log(response);
+		var cId = JSON.stringify(response.data);
+		setCurrentId(cId);
+	}, (error) => {
+		console.log(error);
+		setCurrentId("Please log in first!");
+		
+	});
+	
+	
+	
 
 	if (patientID==responsePatientID) isLoading = false;
+	
+	
+	
+	
+	
 
 	return (
 		<div className="container">
@@ -60,10 +87,11 @@ axios({
 						Patient ID:
                 	</td>
 					<td>
-						<textarea id="patientId" name="patientId" placeholder="Type your patient ID" onChange={patientId} /><br></br>
-						
+						<textarea id="patientId" name="patientId" placeholder="Type your patient ID" onChange={patientId}>     			</textarea><br></br>
 					</td>
 				</tr>
+				
+				
 				
 			</table>
 			{isLoading ? (
