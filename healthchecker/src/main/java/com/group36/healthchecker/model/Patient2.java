@@ -18,15 +18,15 @@ public class Patient2
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int patient_Id;
     @Column(nullable = false)
-    private String first_name;
+    private String firstName;
     @Column(nullable = false)
-    private String last_name;
+    private String lastName;
     @Column(nullable = false)
     private Date dob;
     @Column(nullable = false)
     private Date dor;
     @Column(nullable = false)
-    private int address_Id;
+    private int addressId;
     @Column(nullable = false)
     private long phone;
     @Column(nullable = false)
@@ -46,22 +46,22 @@ public class Patient2
 
     public String getFirstName() 
     {
-        return first_name;
+        return firstName;
     }
 
     public void setFirstName(String first_name) 
     {
-        this.first_name = first_name;
+        this.firstName = first_name;
     }
     
     public String getLastName() 
     {
-        return last_name;
+        return lastName;
     }
 
     public void setLastName(String last_name) 
     {
-        this.last_name = last_name;
+        this.lastName = last_name;
     }
 
     public Date getDob() 
@@ -86,12 +86,12 @@ public class Patient2
 
     public int getAddressId() 
     {
-        return address_Id;
+        return addressId;
     }
 
     public void setAddressId(int address_Id) 
     {
-        this.address_Id = address_Id;
+        this.addressId = address_Id;
     }
 
     public long getPhone() 
