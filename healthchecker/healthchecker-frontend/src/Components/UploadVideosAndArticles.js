@@ -85,7 +85,7 @@ export default function PatientRegister1(){
               </tr>
             </table>
 
-            <button className="button" onClick={handleSubmit}>Next</button>
+            <button className="button" onClick={handleSubmit}>Upload</button>
 
           </form>
         </div>
