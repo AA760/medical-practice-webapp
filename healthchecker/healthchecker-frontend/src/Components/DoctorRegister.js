@@ -73,6 +73,7 @@ export default function DoctorRegister() {
 		  doctorNumber: doctorNumber,
 		  email: email, 
 		  dob: dob,
+		  
 		  //address: address,
 		  line1: line1,
 		  line2: line2,
@@ -97,50 +98,6 @@ export default function DoctorRegister() {
 	
   };
 
-//  //Arrow function to handle delete button press
-//  const handleDelete = event => {
-//    event.preventDefault();
-//    setOutputDelete("Delete button pressed.")
-//	
-//	
-//    axios({
-//      method: 'delete',
-//      url: '/deleteId/'+idV,
-//	  
-//	  
-//    })
-//	.then((response) => {
-//		console.log(response);
-//		setOutputDelete("Success");
-//	}, (error) => {
-//		console.log(error);
-//		setOutputDelete("Fail");
-//	});
-//	
-//  }
-//  
-//  //Arrow function to handle update button press
-//  const handleUpdate = event => {
-//    event.preventDefault();
-//    setOutputPassword("Update button pressed.")
-//	
-//	
-//    axios({
-//      method: 'put',
-//      url: '/changePassword',
-//	  data: {
-//		  id: id2V,password: password2V
-//	  }
-//    })
-//	.then((response) => {
-//		console.log(response);
-//		setOutputPassword("Success");
-//	}, (error) => {
-//		console.log(error);
-//		setOutputPassword("Fail");
-//	});
-//	
-//  };
 
 
   return (
@@ -177,7 +134,7 @@ export default function DoctorRegister() {
 				<textarea id="line2" name="line2" 
 				onChange={line2ContentChange}/>
 				
-				<p>Post Code:</p>
+				<p>Postcode:</p>
 				<textarea id="postcode" name="postcode" 
 				onChange={postcodeContentChange}/>
 				
