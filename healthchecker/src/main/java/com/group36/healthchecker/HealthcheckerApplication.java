@@ -12,7 +12,6 @@ import com.group36.healthchecker.repository.*;
 public class HealthcheckerApplication 
 	
 {
-
 	public static void main(String[] args) 
 		
 	{
