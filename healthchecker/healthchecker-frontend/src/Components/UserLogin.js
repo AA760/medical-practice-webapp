@@ -2,7 +2,6 @@ import React from "react";
 import './adminManageAccount.css';
 import axios from 'axios';
 
-
 export default function AdminManageAccount() {
   
   //Variables to store form input data
@@ -21,7 +20,7 @@ export default function AdminManageAccount() {
   const handleLogin = event => {
     event.preventDefault();
     setOutput("Log-in button pressed.")
-
+	
 	
     axios({
       method: 'get',
