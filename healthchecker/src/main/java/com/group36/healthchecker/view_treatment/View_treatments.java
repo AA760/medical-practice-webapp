@@ -2,8 +2,8 @@ package com.group36.healthchecker.view_treatment;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
 import javax.swing.*;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
 public class View_treatments{		
