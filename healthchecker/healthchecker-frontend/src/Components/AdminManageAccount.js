@@ -44,7 +44,7 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutputSubmit("Sucess");
+		setOutputSubmit("Success");
 	}, (error) => {
 		console.log(error);
 		setOutputSubmit("Fail");
@@ -66,7 +66,7 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutputDelete("Sucess");
+		setOutputDelete("Success");
 	}, (error) => {
 		console.log(error);
 		setOutputDelete("Fail");
@@ -89,7 +89,7 @@ export default function AdminManageAccount() {
     })
 	.then((response) => {
 		console.log(response);
-		setOutputPassword("Sucess");
+		setOutputPassword("Success");
 	}, (error) => {
 		console.log(error);
 		setOutputPassword("Fail");
