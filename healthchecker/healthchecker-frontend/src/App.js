@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Register from "./Components/PatientRegister1";
+import DoctorRegister from "./Components/DoctorRegister";
 import Login from "./Components/UserLogin";
 import ViewJob from "./Components/ViewPatientPreviousAppointments";
 import UploadVideosAndArticles from "./Components/UploadVideosAndArticles";
@@ -17,6 +18,7 @@ class App extends Component {
 					<nav className="topnav">
 						<Link to={'/'} className="nav-link">Login Page</Link>
 						<Link to={'/register'} className="nav-link">Patient Register</Link>
+						//<Link to={'/DoctorRegister'} className="nav-link">Doctor Register</Link>
 						<Link to={'/view'} className="nav-link">View Previous Appointments</Link>
 						<Link to={'/uploadVideosAndArticles'} className="nav-link">Upload Videos And Articles</Link>
 						<Link to={'/sortVideosAndArticles'} className="nav-link">Sort Videos And Articles</Link>
@@ -25,6 +27,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path='/' component={Login} />
 						<Route exact path='/register' component={Register} />
+						//<Route path='/DoctorRegister' component={DoctorRegister} />
 						<Route path='/view' component={ViewJob} />
 						<Route path='/uploadVideosAndArticles' component={UploadVideosAndArticles} />
 						<Route path='/sortVideosAndArticles' component={SortVideosAndArticles} />
@@ -35,8 +38,6 @@ class App extends Component {
 		);
 	}
 }
-
-
 
 export default App;
 

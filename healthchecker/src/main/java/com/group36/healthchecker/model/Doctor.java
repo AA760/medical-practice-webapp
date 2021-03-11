@@ -2,6 +2,7 @@ package com.group36.healthchecker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -28,6 +29,12 @@ public class Doctor implements Serializable {
 
 	@NotBlank
 	private String last_Name;
+	
+	@NotNull
+	private Long doctorNumber;
+	
+	@NotBlank
+	private String email;
 
 	@NotNull
 	private Date dob;
@@ -50,11 +57,13 @@ public class Doctor implements Serializable {
 
 	}
 
-	public Doctor(@NotBlank String first_Name, @NotBlank String last_Name, @NotNull Date dob, @NotNull Long address_Id,
-			@NotBlank String phone_No, @NotNull Long user_Id) {
+	public Doctor(@NotBlank String first_Name, @NotBlank String last_Name, @NotNull Long doctorNumber, @NotBlank String email, 
+			@NotNull Date dob, @NotNull Long address_Id, @NotBlank String phone_No, @NotNull Long user_Id) {
 		super();
 		this.first_Name = first_Name;
 		this.last_Name = last_Name;
+		this.doctorNumber = doctorNumber;
+		this.email = email;
 		this.dob = dob;
 		this.address_Id = address_Id;
 		this.phone_No = phone_No;
@@ -83,6 +92,22 @@ public class Doctor implements Serializable {
 
 	public void setLast_Name(String last_Name) {
 		this.last_Name = last_Name;
+	}
+	
+	public Long getdoctorNumber() {
+		return doctorNumber;
+	}
+
+	public void setdoctorNumber(Long doctorNumber) {
+		this.doctorNumber = doctorNumber;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getDob() {
