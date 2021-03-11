@@ -23,6 +23,7 @@
   cursor: pointer;
   text-align: center;
 }
+
 .box {
   height: auto;
   width: 400px;
@@ -34,10 +35,11 @@
 
 .table th{
   padding: 12px 12px 12px 12px;
-  text-align: left;
+  text-align:left;
   background-color:blueviolet;
   color: white;
 }
+
 .table td {
     border: 1px solid #dddddd;
     padding: 8px;
