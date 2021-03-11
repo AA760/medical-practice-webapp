@@ -35,6 +35,7 @@ public class PatientController {
 //        text.setGenderMap(result.getGenderMap());
 //    	return text;
 //    }
+	
 
 	// Get All Job Texts
 	@GetMapping("/patient")

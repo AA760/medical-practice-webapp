@@ -66,22 +66,19 @@ export default function DoctorRegister() {
 	
     axios({
       method: 'post',
-      url: '/regDoctor',
+      url: '/doctor',
 	  data: {
 		  firstName: firstName, 
 		  lastName: lastName, 
 		  doctorNumber: doctorNumber,
 		  email: email, 
 		  dob: dob,
-		  
-		  //address: address,
 		  line1: line1,
 		  line2: line2,
 		  postcode: postcode,
 		  city: city,
 		  country: country, 
 		  phone: phone,
-		  
 		  userName: usernameV,
 		  password: passwordV,
 		  roles: roleV,
