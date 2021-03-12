@@ -14,7 +14,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter 
 {
@@ -60,5 +59,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
         return NoOpPasswordEncoder.getInstance();
     }
     
-
     }
