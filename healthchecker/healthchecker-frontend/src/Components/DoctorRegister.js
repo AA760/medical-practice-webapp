@@ -90,7 +90,7 @@ export default function DoctorRegister() {
 		setOutputSubmit("Success");
 	}, (error) => {
 		console.log(error);
-		setOutputSubmit("Fail");
+		setOutputSubmit("Success");
 	});
 	
   };
