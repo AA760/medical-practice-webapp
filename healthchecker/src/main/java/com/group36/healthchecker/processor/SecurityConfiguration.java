@@ -36,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
        //Role authorisations for the API endpoints
     	http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/patient").hasAnyRole("ADMIN", "PATIENT")
+                .antMatchers("/patient").hasAnyRole("ADMIN", "PATIENT", "DOCTOR")
                 .antMatchers("/doctor").hasAnyRole("ADMIN", "DOCTOR")
                 .antMatchers("/").permitAll()
                 .antMatchers("/createUser").hasAnyRole("ADMIN")
