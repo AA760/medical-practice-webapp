@@ -98,10 +98,10 @@ axios({
 			<table>
 				<tr> 
 					<td>
-						Patient id:
+						User id:
                 	</td>
 					<td>
-						<textarea id="patientid" name="patientid" placeholder="Type your patient ID" onChange={patientId}>     			</textarea><br></br>
+						<textarea id="Userid" name="Userid" placeholder="Type your patient ID" onChange={patientId}>     			</textarea><br></br>
 						<form>
 				<button>
 				Search
