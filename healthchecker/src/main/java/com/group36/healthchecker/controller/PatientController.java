@@ -37,13 +37,13 @@ public class PatientController {
 //    }
 
 	// Get All Job Texts
-	@GetMapping("/patient")
+	@GetMapping("/patients")
 	public List<Patient> getPatient() {
 		return patientRepository.findAll();
 	}
 
 	// Create a new Job Text
-	@PostMapping("/patient")
+	@PostMapping("/patients")
 	public Patient createPatient(@Valid @RequestBody Patient patient) {
 //        ProcessedText processed = analyzeProcessedText(text);
 //    	text.setId((long) 1);

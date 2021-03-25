@@ -4,9 +4,11 @@ import Register from "./Components/PatientRegister1";
 import DoctorRegister from "./Components/DoctorRegister";
 import Login from "./Components/UserLogin";
 import ViewJob from "./Components/ViewPatientPreviousAppointments";
+import Patients from "./Components/Patients";
 import UploadVideosAndArticles from "./Components/UploadVideosAndArticles";
 import SortVideosAndArticles from "./Components/SortVideosAndArticlesByTime";
 import AdminManageAccount from "./Components/AdminManageAccount";
+
 import './App.css';
 
 class App extends Component {
@@ -18,15 +20,18 @@ class App extends Component {
 					<nav className="topnav">
 						<Link to={'/'} className="nav-link">Login Page</Link>
 						<Link to={'/register'} className="nav-link">Patient Register</Link>
+						<Link to={'/Patients'} className="nav-link">Patient Records</Link>
 						//<Link to={'/DoctorRegister'} className="nav-link">Doctor Register</Link>
 						<Link to={'/view'} className="nav-link">View Previous Appointments</Link>
 						<Link to={'/uploadVideosAndArticles'} className="nav-link">Upload Videos And Articles</Link>
 						<Link to={'/sortVideosAndArticles'} className="nav-link">Sort Videos And Articles</Link>
 						<Link to={'/adminManageAccounts'} className="nav-link">Admin - Manage Accounts</Link>
+						
 					</nav>
 					<Switch>
 						<Route exact path='/' component={Login} />
 						<Route exact path='/register' component={Register} />
+						<Route exact path='/patients' component={Patients} />
 						//<Route path='/DoctorRegister' component={DoctorRegister} />
 						<Route path='/view' component={ViewJob} />
 						<Route path='/uploadVideosAndArticles' component={UploadVideosAndArticles} />
