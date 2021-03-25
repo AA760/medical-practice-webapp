@@ -90,9 +90,8 @@ export default function PatientRegister1(){
 
         
 
-        var roleResponse = arrayResponse[(arrayResponse.length)-2].split('"roles":');
+        var roleResponse = arrayResponse[(arrayResponse.length)-2].split('"roles":"');
         var roleResponse1 = roleResponse[1].split('"');
-        //var roleResponse1 = roleResponse[1];
         var role = roleResponse1[0];
         if(role==="ROLE_PATIENT")
         {
@@ -134,7 +133,7 @@ export default function PatientRegister1(){
       setOutput("Your data is successful saved");
       }, (error) => {
         console.log(error);
-        setOutput(USERID);
+        //setOutput(USERID);
       });
   };
 
@@ -257,7 +256,7 @@ export default function PatientRegister1(){
               </tr>
             </table>
 
-            <button className="button" onClick={handleSubmit}>Next</button>
+            <button className="button" onClick={handleSubmit}>Register</button>
 
           </form>
         </div>

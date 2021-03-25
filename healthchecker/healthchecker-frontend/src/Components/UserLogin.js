@@ -24,7 +24,7 @@ export default function AdminManageAccount() {
 	
     axios({
       method: 'get',
-      url: '/users',
+      url: '/patient',
 	  auth: {
 	  username: usernameV,
       password: passwordV
